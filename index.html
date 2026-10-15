@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мама и ИИ — боты для детей</title>
+<meta name="description" content="Три бота для детей от мамы-создательницы: сказки с именем ребёнка, буквы и цифры с лисёнком Рыжиком и подготовка к школе с Совёнком Тимом.">
+<meta property="og:title" content="Мама и ИИ — боты для детей">
+<meta property="og:description" content="Сказки с именем ребёнка, буквы и цифры с Рыжиком и подготовка к школе с Тимом. Попробовать бесплатно.">
+<meta property="og:image" content="img/avatar.jpg">
+<style>
+  :root {
+    --bg: #FFF6EC;
+    --text: #2B2340;
+    --muted: #6E6478;
+    --card: #FFFFFF;
+    --shadow: 0 10px 30px rgba(120, 70, 20, .12);
+    --skazka: #2E2A63;
+    --ryzhik: #E8692A;
+    --tim: #24508F;
+    --accent: #FFD24A;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    color: var(--text);
+    background: radial-gradient(circle at 50% -10%, #FFE2C4 0, var(--bg) 55%) fixed, var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 480px; margin: 0 auto; padding: 32px 16px 40px; }
+
+  header { text-align: center; margin-bottom: 22px; }
+  .avatar {
+    width: 112px; height: 112px; border-radius: 50%;
+    margin: 0 auto 14px; overflow: hidden;
+    border: 4px solid #fff; box-shadow: var(--shadow);
+    background: linear-gradient(135deg, #FFB37A, #F08A4B);
+    display: grid; place-items: center; font-size: 52px;
+  }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  h1 { font-size: 24px; line-height: 1.2; margin: 0 0 8px; font-weight: 800; }
+  .lead { margin: 0 auto; max-width: 380px; color: var(--muted); font-size: 16px; line-height: 1.45; }
+
+  .why {
+    background: var(--card); border-radius: 22px; padding: 16px 18px;
+    box-shadow: var(--shadow); margin-bottom: 18px;
+  }
+  .why h2 { font-size: 17px; margin: 0 0 10px; }
+  .why ul { margin: 0; padding: 0; list-style: none; }
+  .why li { font-size: 14px; line-height: 1.45; padding-left: 26px; position: relative; margin-bottom: 6px; }
+  .why li::before { content: attr(data-i); position: absolute; left: 0; }
+
+  .card {
+    background: var(--card); border-radius: 22px; padding: 16px;
+    margin-bottom: 16px; box-shadow: var(--shadow);
+    border-top: 5px solid var(--c);
+  }
+  .top { display: flex; gap: 14px; align-items: center; margin-bottom: 12px; }
+  .top img { width: 84px; height: 84px; border-radius: 16px; flex: none; object-fit: cover; }
+  .top h2 { font-size: 19px; margin: 0 0 4px; color: var(--c); }
+  .top p { margin: 0; font-size: 14px; line-height: 1.4; color: var(--muted); }
+
+  .stats { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; padding: 0; list-style: none; }
+  .stats li {
+    font-size: 13px; font-weight: 600; line-height: 1.2;
+    background: color-mix(in srgb, var(--c) 9%, white);
+    color: var(--c); padding: 6px 10px; border-radius: 10px;
+  }
+  .stats b { font-size: 15px; }
+
+  .card h3 { font-size: 15px; margin: 0 0 6px; }
+  .benefits { margin: 0 0 12px; padding: 0 0 0 18px; }
+  .benefits li { font-size: 14px; line-height: 1.45; margin-bottom: 4px; color: var(--text); }
+  .price { font-size: 13px; color: var(--muted); margin: 0 0 10px; line-height: 1.4; }
+  .free {
+    display: inline-block; font-size: 13px; font-weight: 700;
+    background: var(--accent); color: var(--text);
+    padding: 4px 10px; border-radius: 999px; margin-bottom: 10px;
+  }
+  .btn {
+    display: block; text-align: center; text-decoration: none;
+    background: var(--c); color: #fff; font-weight: 700; font-size: 16px;
+    padding: 13px 12px; border-radius: 14px;
+    transition: transform .15s ease, filter .15s ease;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn:active { transform: scale(.97); }
+  .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+  .skazka { --c: var(--skazka); }
+  .ryzhik { --c: var(--ryzhik); }
+  .tim    { --c: var(--tim); }
+
+  footer { text-align: center; color: var(--muted); font-size: 13px; line-height: 1.5; margin-top: 22px; }
+
+  @media (max-width: 360px) {
+    .top img { width: 68px; height: 68px; }
+    h1 { font-size: 21px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="avatar"><img src="img/avatar.jpg" alt="Мама с сыном" onerror="this.parentNode.textContent='🦊'"></div>
+    <h1>Мама, которая растит ребёнка с ИИ</h1>
+    <p class="lead">Сделала три бота для своего сына — теперь они помогают и вашему. Всё работает прямо в Телеграме, ничего не нужно скачивать.</p>
+  </header>
+
+  <section class="why">
+    <h2>Почему это работает</h2>
+    <ul>
+      <li data-i="⏱">Короткие занятия по 10–15 минут — столько ребёнок держит внимание без слёз.</li>
+      <li data-i="🔊">Всё озвучено голосом — ребёнку не нужно уметь читать, он справляется сам.</li>
+      <li data-i="⭐">Звёзды, медали и награды вместо «неправильно» — хочется вернуться завтра.</li>
+      <li data-i="👩">Маме — отчёты и аналитика: видно, что получается, а что подтянуть.</li>
+    </ul>
+  </section>
+
+  <section class="card skazka">
+    <div class="top">
+      <img src="img/skazka.webp" alt="Лисёнок читает книгу">
+      <div>
+        <h2>Сказочный конструктор</h2>
+        <p>Новая сказка каждый вечер, где главный герой — ваш ребёнок, с его именем.</p>
+      </div>
+    </div>
+    <ul class="stats">
+      <li><b>14</b> жанров</li>
+      <li><b>18</b> сказок-помощниц</li>
+      <li>до <b>3</b> героев</li>
+      <li><b>2</b> голоса озвучки</li>
+      <li>PDF для печати</li>
+    </ul>
+    <h3>Чем полезно</h3>
+    <ul class="benefits">
+      <li>Развивает речь и словарный запас: ребёнок слушает внимательнее, когда история про него.</li>
+      <li>Сказки-помощницы мягко помогают пережить трудности: страх темноты, садик, ревность к малышу, засыпание, горшок, стеснительность.</li>
+      <li>Жанры на любое настроение: чудеса, приключения, космос, детектив, богатырская, морская, про профессии.</li>
+      <li>Нет сил читать — сказку прочитает тёплый женский или мужской голос под тихую музыку.</li>
+      <li>Можно вписать брата, сестру или друга — герои пройдут приключение вместе.</li>
+    </ul>
+    <p class="price">Дальше 90 ₽ за сказку или пакет на месяц: 30, 60 или 90 сказок.</p>
+    <span class="free">3 сказки бесплатно</span>
+    <a class="btn" href="https://t.me/Konstryktor_Skazok_bot?start=site">Получить сказку</a>
+  </section>
+
+  <section class="card ryzhik">
+    <div class="top">
+      <img src="img/ryzhik.webp" alt="Лисёнок Рыжик">
+      <div>
+        <h2>Академия Рыжика</h2>
+        <p>Буквы, звуки и цифры для детей около 5 лет — в игре с лисёнком Рыжиком.</p>
+      </div>
+    </div>
+    <ul class="stats">
+      <li><b>25</b> уровней</li>
+      <li><b>15</b> видов заданий</li>
+      <li>числа до <b>100</b></li>
+      <li><b>25</b> званий</li>
+      <li>именной сертификат</li>
+    </ul>
+    <h3>Чем полезно</h3>
+    <ul class="benefits">
+      <li>Буквы: обвести пальчиком, слепить слог, собрать слово, найти первый звук, звуковая схема, рифма.</li>
+      <li>Цифры: счёт предметов, пропущенное число, «больше-меньше», сложение и вычитание, знаки &lt; &gt; =.</li>
+      <li>Основа — идеи Жуковой и Монтессори: сначала звук, потом буква, сложность растёт постепенно.</li>
+      <li>Рыжик объясняет каждое задание голосом, за верный ответ — звёздочка и салют.</li>
+      <li>Для родителей: аналитика по прогрессу, таймер занятия, режим «только буквы» или «только цифры».</li>
+    </ul>
+    <p class="price">990 ₽ один раз — без подписки, игра остаётся навсегда.</p>
+    <span class="free">Демо-урок бесплатно: 24 часа</span>
+    <a class="btn" href="https://t.me/AcademiyaRizhika_bot?start=site">Попробовать урок</a>
+  </section>
+
+  <section class="card tim">
+    <div class="top">
+      <img src="img/tim.webp" alt="Совёнок Тим">
+      <div>
+        <h2>Совёнок Тим</h2>
+        <p>Подготовка к школе для детей 5–7 лет: задания с картинками и голосом.</p>
+      </div>
+    </div>
+    <ul class="stats">
+      <li><b>362</b> задания</li>
+      <li><b>13</b> тем</li>
+      <li><b>3</b> уровня сложности</li>
+      <li><b>8</b> островов</li>
+      <li>диплом в конце</li>
+    </ul>
+    <h3>Чем полезно</h3>
+    <ul class="benefits">
+      <li>Всё, что нужно к школе: счёт, звуки и буквы, речь, внимание, время, животные, растения, профессии, безопасность.</li>
+      <li>В каждой игре 8 заданий вперемешку — обязательно математика, звуки и речь.</li>
+      <li>Сложность подстраивается по каждой теме: 3 верных подряд — сложнее, 2 ошибки — проще.</li>
+      <li>Ошибся — Тим подскажет и даст ещё попытку, без «неправильно».</li>
+      <li>Каждое воскресенье маме приходит отчёт по темам с советами, во что поиграть дома.</li>
+    </ul>
+    <p class="price">Дальше 990 ₽ в месяц, без автосписаний: все острова, медали, раскраски и диплом.</p>
+    <span class="free">8 заданий бесплатно</span>
+    <a class="btn" href="https://t.me/SovenokTim_bot?start=site">Начать играть</a>
+  </section>
+
+  <footer>
+    Кнопки открывают бота в Телеграме.<br>
+    Вопросы — пишите мне в директ Instagram.
+  </footer>
+</main>
+</body>
+</html>
