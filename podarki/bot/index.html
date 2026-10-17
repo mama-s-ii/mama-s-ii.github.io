@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Как я сделала 3 бота для сына без программиста — Мама с ИИ</title>
+<meta name="description" content="Я не программист. Всё, что у меня было, — задача из жизни и ИИ-помощник, которому я объясняла словами, что хочу. Вот путь по шагам.">
+<meta property="og:title" content="Как я сделала 3 бота для сына без программиста"><meta property="og:image" content="../../img/avatar.jpg">
+<style>
+:root{--bg:#FFF6EC;--text:#2B2340;--muted:#6E6478;--card:#fff;--shadow:0 10px 30px rgba(120,70,20,.12);--accent:#FFD24A;--brand:#E8692A}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif;color:var(--text);
+background:radial-gradient(circle at 50% -10%,#FFE2C4 0,var(--bg) 55%) fixed,var(--bg);-webkit-font-smoothing:antialiased}
+main{max-width:560px;margin:0 auto;padding:28px 16px 44px}
+.author{display:flex;align-items:center;gap:10px;margin-bottom:18px;color:var(--muted);font-size:14px;text-decoration:none}
+.author img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:var(--shadow)}
+.tag{display:inline-block;background:var(--accent);font-weight:700;font-size:13px;padding:4px 10px;border-radius:999px;margin-bottom:10px}
+h1{font-size:26px;line-height:1.2;margin:0 0 12px}
+.lead{font-size:16px;line-height:1.55;color:var(--muted);margin:0 0 22px}
+.card{background:var(--card);border-radius:20px;padding:18px;box-shadow:var(--shadow);margin-bottom:16px}
+h2{font-size:18px;margin:22px 0 10px}
+p{font-size:15px;line-height:1.55;margin:0 0 12px}
+ul{margin:0 0 12px;padding-left:20px}li{font-size:15px;line-height:1.5;margin-bottom:6px}
+.check{list-style:none;padding:0}
+.check label{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.45;padding:6px 0;cursor:pointer}
+.check input{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--brand)}
+.prompt h3{font-size:16px;margin:0 0 8px}
+.prompt pre{white-space:pre-wrap;font:14px/1.5 inherit;font-family:inherit;background:#FFF6EC;border-radius:12px;padding:12px;margin:0 0 10px}
+.copy{border:0;background:var(--brand);color:#fff;font-weight:700;font-size:14px;padding:10px 14px;border-radius:12px;cursor:pointer;font-family:inherit}
+.copy:active{transform:scale(.97)}
+.copy:focus-visible,.btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.bots h2{margin-top:6px}
+.bot{border-left:5px solid var(--c);padding-left:12px;margin:14px 0}
+.bot b{color:var(--c);font-size:16px}
+.bot p{margin:4px 0 8px;color:var(--muted)}
+.free{display:inline-block;font-size:12px;font-weight:700;background:var(--accent);padding:3px 9px;border-radius:999px;margin-bottom:8px}
+.btn{display:block;text-align:center;text-decoration:none;background:var(--c);color:#fff;font-weight:700;padding:12px;border-radius:14px}
+footer{text-align:center;color:var(--muted);font-size:13px;margin-top:22px;line-height:1.5}
+footer a{color:inherit}
+</style></head>
+<body><main>
+<a class="author" href="../../"><img src="../../img/avatar.jpg" alt=""><span>Ася · мама с ИИ</span></a>
+<span class="tag">🎁 Подарок</span>
+<h1>Как я сделала 3 бота для сына без программиста</h1>
+<p class="lead">Я не программист. Всё, что у меня было, — задача из жизни и ИИ-помощник, которому я объясняла словами, что хочу. Вот путь по шагам.</p>
+<div class="card"><h2>Шаг 1. Задача из жизни, а не «идея стартапа»</h2><p>Сын просил новую сказку каждый вечер — так появился «Сказочный конструктор». Буквы шли со слезами — появилась «Академия Рыжика». Через год школа — появился Совёнок Тим. Лучшие продукты решают вашу собственную боль.</p><h2>Шаг 2. Опишите словами, как это должно работать</h2><p>Я писала ИИ-помощнику (Claude) обычным языком: «Бот спрашивает имя ребёнка и возраст, предлагает жанры кнопками и присылает сказку». Он писал код, запускал, проверял и объяснял, что сделал. Я смотрела результат и говорила, что поправить.</p><h2>Шаг 3. Бот в Телеграме</h2><ul><li>В Телеграме пишете @BotFather → /newbot → получаете ключ бота.</li><li>Отдаёте ключ ИИ-помощнику — он подключает к нему код.</li><li>Бот сразу работает в вашем Телеграме, можно тестировать.</li></ul><h2>Шаг 4. Тестировщик — ваш ребёнок</h2><p>Самые ценные правки пришли от сына: «скучно», «не понял задание», «а можно лисёнка?». Дети честнее любых отзывов.</p><h2>Шаг 5. Чтобы бот работал круглосуточно</h2><p>Пока бот запущен на домашнем компьютере, он засыпает вместе с ним. Поэтому боты переехали на арендованный сервер — это несколько сотен рублей в месяц. ИИ-помощник сам всё туда выложил и настроил.</p><h2>Что я поняла</h2><ul><li>Не нужно знать программирование, нужно уметь ясно объяснять, чего хочешь.</li><li>Начинайте с самой маленькой версии и сразу показывайте ребёнку.</li><li>ИИ ошибается — проверяйте каждую функцию руками, как пользователь.</li><li>Деньги, оплаты и личные данные детей — места, где нужна особая внимательность.</li></ul></div>
+<div class="card bots"><h2>Попробуйте бесплатно</h2><p>Вот что получилось в итоге — попробуйте бесплатно:</p><div class="bot" style="--c:#2E2A63"><b>Сказочный конструктор</b><p>Сказка с именем вашего ребёнка за минуту, с озвучкой и PDF.</p><span class="free">3 сказки бесплатно</span><a class="btn" href="https://t.me/Konstryktor_Skazok_bot?start=gift">Открыть в Телеграме</a></div><div class="bot" style="--c:#E8692A"><b>Академия Рыжика</b><p>Буквы, звуки и цифры для детей около 5 лет: 25 уровней, всё озвучено.</p><span class="free">Демо-урок бесплатно</span><a class="btn" href="https://t.me/AcademiyaRizhika_bot?start=gift">Открыть в Телеграме</a></div><div class="bot" style="--c:#24508F"><b>Совёнок Тим</b><p>Подготовка к школе 5–7 лет: задания с голосом и отчёт для мамы.</p><span class="free">8 заданий бесплатно</span><a class="btn" href="https://t.me/SovenokTim_bot?start=gift">Открыть в Телеграме</a></div></div>
+<footer>Больше полезного — в Instagram <a href="https://www.instagram.com/mama.s.ai/">@mama.s.ai</a><br><a href="../../">Все мои боты</a></footer>
+</main><script>
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+  const t=b.previousElementSibling.textContent;
+  try{await navigator.clipboard.writeText(t)}catch(e){const r=document.createRange();r.selectNodeContents(b.previousElementSibling);const s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy')}
+  const o=b.textContent;b.textContent='Скопировано ✓';setTimeout(()=>b.textContent=o,1600);
+}));
+</script></body></html>
